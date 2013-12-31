@@ -3,7 +3,7 @@
 //  OCAUtilities
 //
 //  Created by Kevin O'Mara on 12/30/13.
-//  Copyright (c) 2013 O'Mara Consulting Associates. All rights reserved.
+//  Copyright (c) 2012-2013 O'Mara Consulting Associates. All rights reserved.
 //
 
 #import "OCAUtilities.h"
