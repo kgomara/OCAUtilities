@@ -16,13 +16,15 @@
 
 @implementation OCATextField
 
+// =========================================================================================================
 #pragma mark - Accessors
+// =========================================================================================================
 
 @synthesize textEdgeInsets          = _textEdgeInsets;
 @synthesize clearButtonEdgeInsets   = _clearButtonEdgeInsets;
 @synthesize placeholderTextColor    = _placeholderTextColor;
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (void)setPlaceholderTextColor: (UIColor *)placeholderTextColor
 {
 	_placeholderTextColor = placeholderTextColor;
@@ -33,9 +35,11 @@
 }
 
 
+// =========================================================================================================
 #pragma mark - UIView
+// =========================================================================================================
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (id)initWithCoder: (NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder: aDecoder])) {
@@ -45,7 +49,7 @@
 }
 
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (id)initWithFrame: (CGRect)frame
 {
     if ((self = [super initWithFrame: frame])) {
@@ -55,23 +59,25 @@
 }
 
 
+// =========================================================================================================
 #pragma mark - UITextField
+// =========================================================================================================
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (CGRect)textRectForBounds: (CGRect)bounds
 {
 	return UIEdgeInsetsInsetRect( [super textRectForBounds: bounds], _textEdgeInsets);
 }
 
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (CGRect)editingRectForBounds:(CGRect)bounds
 {
 	return [self textRectForBounds: bounds];
 }
 
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (CGRect)clearButtonRectForBounds:(CGRect)bounds
 {
 	CGRect rect = [super clearButtonRectForBounds: bounds];
@@ -81,7 +87,7 @@
 }
 
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (void)drawPlaceholderInRect: (CGRect)rect
 {
 	if (!_placeholderTextColor) {
@@ -91,16 +97,26 @@
 	}
 	
     [_placeholderTextColor setFill];
-    [self.placeholder drawInRect: rect
-                        withFont: self.font
-                   lineBreakMode: UILineBreakModeTailTruncation
-                       alignment: self.textAlignment];
+    
+    // Make a copy of the default paragraph style
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    // ...set line break mode
+    paragraphStyle.lineBreakMode            = NSLineBreakByTruncatingTail;
+    // ...and text alignment
+    paragraphStyle.alignment                = self.textAlignment;
+    
+    NSDictionary *attributes = @{ NSFontAttributeName: self.font,
+                                  NSParagraphStyleAttributeName: paragraphStyle };
+    [self.placeholder drawInRect:rect
+                  withAttributes:attributes];
 }
 
 
+// =========================================================================================================
 #pragma mark - Private
+// =========================================================================================================
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (void)_initialize
 {
 	_textEdgeInsets         = UIEdgeInsetsZero;

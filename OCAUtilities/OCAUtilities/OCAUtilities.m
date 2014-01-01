@@ -12,17 +12,17 @@
 
 + (void)globalResignFirstResponder;
 + (void)globalResignFirstResponderRecursively: (UIView*)view;
-+ (CGRect)getScreenBoundsForOrientation: (UIInterfaceOrientation)orientation;
++ (CGRect)getScreenBoundsForOrientation: (UIDeviceOrientation)orientation;
 
 @end
 
 @implementation OCAUtilities
 
-// ===============================================================================
+// =========================================================================================================
 #pragma mark - Public class methods
-// ===============================================================================
+// =========================================================================================================
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)showAlertWithMessageAndType: (NSString*)theMessage
                           alertType: (NSString*)theType
 {
@@ -34,33 +34,33 @@
     [alert show];
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)showErrorWithMessage: (NSString*)theMessage
 {
     [self showAlertWithMessageAndType: theMessage
                             alertType: NSLocalizedString( @"Error", @"Error")];
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)showWarningWithMessage: (NSString*)theMessage
 {
     [self showAlertWithMessageAndType: theMessage
                             alertType: NSLocalizedString(@"Warning", @"Warning")];
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (CGRect)getScreenBoundsForCurrentOrientation
 {
     return [self getScreenBoundsForOrientation: [[UIDevice currentDevice] orientation]];
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)dismissKeyboard
 {
     [self globalResignFirstResponder];
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)offsetTextField: (CGRect)fieldRect
            inScrollView: (UIScrollView *)scrollView
        withNotification: (NSNotification *)aNotification
@@ -84,7 +84,7 @@
     scrollView.scrollIndicatorInsets    = contentInsets;
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)resetTextField: (UIView *)activeField
           inScrollView: (UIScrollView *)scrollView
 {
@@ -94,17 +94,19 @@
     scrollView.scrollIndicatorInsets    = contentInsets;
 }
 
-// ===============================================================================
+// =========================================================================================================
 #pragma mark - Private class methods
-// ===============================================================================
+// =========================================================================================================
 
-/********************************************************************************/
-+ (CGRect)getScreenBoundsForOrientation: (UIInterfaceOrientation)orientation
+//----------------------------------------------------------------------------------------------------------
++ (CGRect)getScreenBoundsForOrientation: (UIDeviceOrientation)orientation
 {
     UIScreen *screen = [UIScreen mainScreen];
     CGRect fullScreenRect = screen.bounds; //implicitly in Portrait orientation.
     
-    if (UIInterfaceOrientationIsLandscape( orientation)) {
+    if (orientation == UIDeviceOrientationLandscapeLeft ||
+        orientation == UIDeviceOrientationLandscapeRight)
+    {
         CGRect temp;
         temp.size.width     = fullScreenRect.size.height;
         temp.size.height    = fullScreenRect.size.width;
@@ -114,7 +116,7 @@
     return fullScreenRect;
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)globalResignFirstResponder
 {
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];
@@ -123,7 +125,7 @@
     }
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (void)globalResignFirstResponderRecursively: (UIView*) view
 {
     // Check to make sure the view can respond to resignFirstResponder
@@ -135,7 +137,7 @@
     }
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 + (BOOL)isValidEmailFormat: (NSString *)email
 {
     DLog(/*@"checking %@", email*/);

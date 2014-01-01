@@ -20,6 +20,9 @@
 
 #define OCAGlobalMacros_h
 
+// =========================================================================================================
+#pragma mark - Logging Macros
+// =========================================================================================================
 
 /**
  Logging macros. The are 3 versions - DLog, ALog, and ELog with the first letter signifying
@@ -55,6 +58,7 @@
  with the rest of the NSError information.
  */
 
+//----------------------------------------------------------------------------------------------------------
 #ifdef DEBUG
 #   define DLog(_fmt, ...) NSLog((@"%s [Line %d] " _fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
@@ -62,54 +66,69 @@
 #endif
 
 // ALog always display output regardless of the DEBUG setting.
+//----------------------------------------------------------------------------------------------------------
 #define ALog(_fmt, ...) NSLog((@"%s [Line %d] " _fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 // ELog always displays output regardless of the DEBUG setting.
 // Elog accepts an NSError object and logs the detailed information. This may seem redundant
 // for many system errors, but the macro will display the Class, method name, and line number.
+//----------------------------------------------------------------------------------------------------------
 #define ELog(_error, _fmt, ...)                                                                                             \
 do {                                                                                                                        \
-NSLog(@"%s [Line %d] [Error %@] " _fmt, __PRETTY_FUNCTION__, __LINE__,  [_error localizedDescription], ##__VA_ARGS__);  \
-NSArray* detailedErrors = [[_error userInfo] objectForKey:NSDetailedErrorsKey];                                         \
-if (detailedErrors != nil && [detailedErrors count] > 0) {                                                              \
-for (NSError* detailedError in detailedErrors) {                                                                    \
-NSLog(@"  DetailedError: %@", [detailedError userInfo]);                                                        \
-}                                                                                                                   \
-}                                                                                                                       \
-else {                                                                                                                  \
-NSLog(@"  %@", [_error userInfo]);                                                                                  \
-}                                                                                                                       \
+    NSLog(@"%s [Line %d] [Error %@] " _fmt, __PRETTY_FUNCTION__, __LINE__,  [_error localizedDescription], ##__VA_ARGS__);  \
+    NSArray* detailedErrors = [[_error userInfo] objectForKey:NSDetailedErrorsKey];                                         \
+    if (detailedErrors != nil && [detailedErrors count] > 0) {                                                              \
+        for (NSError* detailedError in detailedErrors) {                                                                    \
+            NSLog(@"  DetailedError: %@", [detailedError userInfo]);                                                        \
+        }                                                                                                                   \
+    }                                                                                                                       \
+    else {                                                                                                                  \
+        NSLog(@"  %@", [_error userInfo]);                                                                                  \
+    }                                                                                                                       \
 } while(0)
+
+// =========================================================================================================
+#pragma mark - Miscellaneous macros
+// =========================================================================================================
 
 /**
  isEmpty is used to determine if an object is "empty". Depending on the context, you might have an NSString variable that
  can be “nil” when not set in one place OR an empty string in another. Sometimes either nil or empty strings are acceptable
  “NULL” values.
  */
+//----------------------------------------------------------------------------------------------------------
 static inline BOOL isEmpty(id anObject) {
     return anObject == nil                                                                      ||
-    [anObject isKindOfClass:[NSNull class]]                                                 ||
-    ([anObject respondsToSelector:@selector(length)] && [(NSData *)anObject length] == 0)   ||
-    ([anObject respondsToSelector:@selector(count)]  && [(NSArray *)anObject count] == 0);
+        [anObject isKindOfClass:[NSNull class]]                                                 ||
+        ([anObject respondsToSelector:@selector(length)] && [(NSData *)anObject length] == 0)   ||
+        ([anObject respondsToSelector:@selector(count)]  && [(NSArray *)anObject count] == 0);
 }
 
 
 /**
- These macros are used if your artist provides hex colors - e.g., 0xffffff
+ RGB color from hex  - e.g., 0xffffff, macro
  */
-//RGB color macro
+//----------------------------------------------------------------------------------------------------------
 #define UIColorFromRGB(rgbValue) [UIColor                   \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0   \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0             \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-//RGB color macro with alpha
+/*
+ RGB color from hex  - e.g., 0xffffff, macro with alpha
+ */
+//----------------------------------------------------------------------------------------------------------
 #define UIColorFromRGBWithAlpha(rgbValue,a) [UIColor        \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0   \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0             \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 #endif
+
+// =========================================================================================================
+#pragma mark - General Utilities
+// =========================================================================================================
+
 
 /**
  General utility routines
@@ -132,6 +151,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @param theMessage The message to display
  @param theType Alert type to display (typically, Information, Warning, Error)
  */
+//----------------------------------------------------------------------------------------------------------
 + (void)showAlertWithMessageAndType:(NSString*)theMessage
                           alertType:(NSString*)theType;
 
@@ -139,12 +159,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Display an alert message to the user indicating Error
  @param theMessage The message to display
  */
+//----------------------------------------------------------------------------------------------------------
 + (void)showErrorWithMessage:(NSString*)theMessage;
 
 /**
  Display an alert message for the user indicating Warning
  @param theMessage The message to display
  */
+//----------------------------------------------------------------------------------------------------------
 + (void)showWarningWithMessage:(NSString*)theMessage;
 
 /**
@@ -154,6 +176,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Performance is linear with respect to the number of subViews. Do not use this method
  if the number of subViews may be large.
  */
+//----------------------------------------------------------------------------------------------------------
 + (void)dismissKeyboard;
 
 /**
@@ -182,6 +205,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @param scrollView       The UIScrollView containing the activeField
  @param aNotification    The NSNotification object
  */
+//----------------------------------------------------------------------------------------------------------
 + (void)offsetTextField: (CGRect)fieldRect
            inScrollView: (UIScrollView *)scrollView
        withNotification: (NSNotification *)aNotification;
@@ -194,6 +218,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @param activeField      The UITextField or UITextView to expose
  @param scrollView       The UIScrollView containing the activeField
  */
+//----------------------------------------------------------------------------------------------------------
 + (void)resetTextField: (UIView *)activeField
           inScrollView: (UIScrollView *)scrollView;
 
@@ -203,6 +228,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  UIScreen bounds are always in Portrait mode. This routine swaps H + W if Landscape.
  @returns Oriented CGRect
  */
+//----------------------------------------------------------------------------------------------------------
 + (CGRect)getScreenBoundsForCurrentOrientation;
 
 /**
@@ -210,14 +236,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @param email The string to validate
  @returns YES if the string appears to be formatted correctly, NO otherwise
  */
+//----------------------------------------------------------------------------------------------------------
 + (BOOL)isValidEmailFormat: (NSString *)email;
 
 @end
 
-/********************************************************************************/
-/**
- Convenience categories for NSDate
- */
+// =========================================================================================================
+#pragma mark - Convenience categories for NSDate
+// =========================================================================================================
+
 @interface NSDate (OCAUtilities)
 
 /**
@@ -226,6 +253,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @param timeStyle Desired time style for the returned string
  @returns Date formatted per the requested style
  */
+//----------------------------------------------------------------------------------------------------------
 - (NSString *)dateStringWithDateStyle: (NSDateFormatterStyle)dateStyle
                          andTimeStyle: (NSDateFormatterStyle)timeStyle;
 
@@ -236,6 +264,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @param secondDate the later date
  @returns formatted string representing the time difference between the two dates
  */
+//----------------------------------------------------------------------------------------------------------
 - (NSString *)formattedTimeToDate: (NSDate *)secondDate;
 
 /**
@@ -243,59 +272,66 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  
  @returns NSDate representing the current GMT
  */
+//----------------------------------------------------------------------------------------------------------
 + (NSDate *)currentGMTDate;
 
 @end
 
 
-/********************************************************************************/
-/**
- Convenience methods add to UIView
- */
+// =========================================================================================================
+#pragma mark - Convenience methods add to UIView
+// =========================================================================================================
+
 @interface UIView (OCAUtilities)
 
 /**
  Fades a UIView into visibility
  @param subView UIView to appear
  */
+//----------------------------------------------------------------------------------------------------------
 - (void)fadeSubViewIn:(UIView*)subView;
 
 /**
  Fades a UIView out of visibility
  @param subView UIView to disappear
  */
+//----------------------------------------------------------------------------------------------------------
 - (void)fadeSubViewOut:(UIView*)subView;
 
 /** Centers a view inside a containing UIView
  @param containingView the UIView in which to center this view
  */
+//----------------------------------------------------------------------------------------------------------
 - (void)centerInView: (UIView *)containingView;
 
 /**
  Finds the parent view controller
  @returns the parent view controller if successful, nil otherwise
  */
+//----------------------------------------------------------------------------------------------------------
 - (UIViewController *) containingViewController;
 
 /**
  Traverses the Responder chain looking for UIViewControllers
  @returns A UIViewController if successful, nil otherwise
  */
+//----------------------------------------------------------------------------------------------------------
 - (id) traverseResponderChainForUIViewController;
 
 @end
 
 
-/********************************************************************************/
-/**
- Convenience Categories added to NSString
- */
+// =========================================================================================================
+#pragma mark - Convenience Categories added to NSString
+// =========================================================================================================
+
 @interface NSString (OCAUtilities)
 
 /**
  Creates a 32-digit hex-value of a NSString
  @returns MD5 hash of the string
  */
+//----------------------------------------------------------------------------------------------------------
 - (NSString *)MD5Hash;
 
 /**
@@ -307,8 +343,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 @end
 
+// =========================================================================================================
+#pragma mark - Drawing Utilities
+// =========================================================================================================
 
-/********************************************************************************/
 #ifndef OCADRAWINGUTILITIES
 #define OCADRAWINGUTILITIES
 
@@ -320,18 +358,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  A macro that converts a number from degress to radians.
  
  @param d number in degrees
- 
  @return The number converted to radians.
  */
+//----------------------------------------------------------------------------------------------------------
 #define DEGREES_TO_RADIANS(d) ((d) * 0.0174532925199432958f)
 
 /**
  A macro that converts a number from radians to degrees.
  
  @param r number in radians
- 
  @return The number converted to degrees.
  */
+//----------------------------------------------------------------------------------------------------------
 #define RADIANS_TO_DEGREES(r) ((r) * 57.29577951308232f)
 
 #endif
@@ -340,13 +378,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Limits a float to the `min` or `max` value. The float is between `min` and `max` it will be returned unchanged.
  
  @param f The float to limit.
- 
  @param min The minumum value for the float.
- 
  @param max The minumum value for the float.
- 
  @return A float limited to the `min` or `max` value.
  */
+//----------------------------------------------------------------------------------------------------------
 extern CGFloat OCAFLimit(CGFloat f, CGFloat min, CGFloat max);
 
 
@@ -354,6 +390,7 @@ extern CGFloat OCAFLimit(CGFloat f, CGFloat min, CGFloat max);
 /// @name Rectangle Manipulation
 ///-----------------------------
 
+//----------------------------------------------------------------------------------------------------------
 extern CGRect CGRectSetX(CGRect rect, CGFloat x);
 extern CGRect CGRectSetY(CGRect rect, CGFloat y);
 extern CGRect CGRectSetWidth(CGRect rect, CGFloat width);
@@ -370,6 +407,7 @@ extern CGRect CGRectAddPoint(CGRect rect, CGPoint point);
 /// @name Drawing Rounded Rectangles
 ///---------------------------------
 
+//----------------------------------------------------------------------------------------------------------
 extern void OCADrawRoundedRect(CGContextRef context, CGRect rect, CGFloat cornerRadius);
 
 
@@ -377,6 +415,7 @@ extern void OCADrawRoundedRect(CGContextRef context, CGRect rect, CGFloat corner
 /// @name Creating Gradients
 ///-------------------------
 
+//----------------------------------------------------------------------------------------------------------
 extern CGGradientRef OCACreateGradientWithColors(NSArray *colors);
 extern CGGradientRef OCACreateGradientWithColorsAndLocations(NSArray *colors, NSArray *locations);
 
@@ -385,12 +424,13 @@ extern CGGradientRef OCACreateGradientWithColorsAndLocations(NSArray *colors, NS
 /// @name Drawing Gradients
 ///------------------------
 
+//----------------------------------------------------------------------------------------------------------
 extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, CGRect rect);
 
-/********************************************************************************/
-/**
- Convenience Categories added to UILabel
- */
+// =========================================================================================================
+#pragma mark - Convenience Categories added to UILabel
+// =========================================================================================================
+
 @interface UILabel (OCAUtilities)
 
 /**
@@ -402,15 +442,16 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  
  @param fixedWidth Desired width
  */
+//----------------------------------------------------------------------------------------------------------
 - (void)sizeToFitFixedWidth:(NSInteger)fixedWidth;
 
 @end
 
 
-/********************************************************************************/
-/**
- Simple UITextField subclass to adds text insets.
- */
+// =========================================================================================================
+#pragma mark - Simple UITextField subclass to adds text insets.
+// =========================================================================================================
+
 @interface OCATextField : UITextField
 
 ///------------------------------------
@@ -458,10 +499,10 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 
 @end
 
-/********************************************************************************/
-/**
- Convenience methods added to UIToolbar
- */
+// =========================================================================================================
+#pragma mark - Convenience methods added to UIToolbar
+// =========================================================================================================
+
 @interface UIToolbar (OCAUtilities)
 
 @end
@@ -475,15 +516,16 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  Override's UITToolbar drawRect to not draw anything
  @param rect Rect to draw
  */
+//----------------------------------------------------------------------------------------------------------
 - (void)drawRect:(CGRect)rect;
 
 @end
 
 
-/********************************************************************************/
-/**
- Convenience Categories added to UIImage
- */
+// =========================================================================================================
+#pragma mark - Convenience Categories added to UIImage
+// =========================================================================================================
+
 @interface UIImage (OCAUtilities)
 
 /**
@@ -491,6 +533,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  @param view UIView to image
  @returns Image if successful, nil otherwise
  */
+//----------------------------------------------------------------------------------------------------------
 + (UIImage*)imageFromView: (UIView*)view;
 
 /**
@@ -499,6 +542,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  @param newSize Desired new size
  @returns Scaled image if successful, nil otherwise
  */
+//----------------------------------------------------------------------------------------------------------
 + (UIImage*)imageFromView: (UIView*)view
              scaledToSize: (CGSize)newSize;
 
@@ -508,35 +552,39 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  @param newSize Desired new size
  @returns Scaled image if successful, nil otherwise
  */
+//----------------------------------------------------------------------------------------------------------
 + (UIImage*)imageWithImage: (UIImage*)image
               scaledToSize: (CGSize)newSize;
 
 @end
 
 
-/********************************************************************************/
+// =========================================================================================================
+#pragma mark - Convenience methods add to UIViewController
+// =========================================================================================================
+
 #define kSemiModalAnimationDuration   0.5
 
-/**
- Convenience methods add to UIViewController
- */
 @interface UIViewController (OCAUtilities)
 
 /**
  Presents a UIViewController with a kick-back animation
  @param vc UIViewController to animate
  */
+//----------------------------------------------------------------------------------------------------------
 -(void)presentSemiViewController: (UIViewController*)vc;
 
 /**
  Presents a UIView with a kick-back animation
  @param vc UIViewController to animate
  */
+//----------------------------------------------------------------------------------------------------------
 -(void)presentSemiView: (UIView*)vc;
 
 /**
  Dissmisses a SemiModalView
  */
+//----------------------------------------------------------------------------------------------------------
 -(void)dismissSemiModalView;
 
 @end

@@ -13,12 +13,12 @@
 
 @implementation UIView (OCAUtilities)
 
-// ===============================================================================
+// =========================================================================================================
 #pragma mark - Public instance methods
-// ===============================================================================
+// =========================================================================================================
 
-/********************************************************************************/
-- (void)fadeSubViewIn:(UIView*)subView 
+//----------------------------------------------------------------------------------------------------------
+- (void)fadeSubViewIn:(UIView*)subView
 {
     DLog();
     // fade a view into existence
@@ -31,7 +31,7 @@
     ];
 }
 
-/********************************************************************************/
+//----------------------------------------------------------------------------------------------------------
 - (void)fadeSubViewOut:(UIView*)subView
 {
     DLog();
@@ -46,6 +46,7 @@
      ];
 }
 
+//----------------------------------------------------------------------------------------------------------
 - (void)centerInView:(UIView *)containingView
 {
     DLog();
@@ -56,7 +57,8 @@
 // Convenience category method to find actual ViewController that contains a view
 // Adapted from: http://stackoverflow.com/questions/1340434/get-to-uiviewcontroller-from-uiview-on-iphone
 
-- (UIViewController *) containingViewController 
+//----------------------------------------------------------------------------------------------------------
+- (UIViewController *) containingViewController
 {
     DLog();
     UIView *target = self.superview ? self.superview : self;
@@ -64,7 +66,8 @@
     return (UIViewController *)[target traverseResponderChainForUIViewController];
 }
 
-- (id) traverseResponderChainForUIViewController 
+//----------------------------------------------------------------------------------------------------------
+- (id) traverseResponderChainForUIViewController
 {
     id nextResponder = [self nextResponder];
     if ([nextResponder isKindOfClass: [UIViewController class]]) {
