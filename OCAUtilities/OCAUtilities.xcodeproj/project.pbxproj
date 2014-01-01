@@ -34,6 +34,7 @@
 		D6BF16A01872734600DFF918 /* OCADrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF169D1872734600DFF918 /* OCADrawingUtilities.m */; };
 		D6BF16A11872734600DFF918 /* OCATextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF169E1872734600DFF918 /* OCATextField.m */; };
 		D6BF16A21872734600DFF918 /* OCATextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BF169E1872734600DFF918 /* OCATextField.m */; };
+		D6BFCF4C18748DEC0088D928 /* OCAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D6BF166718726E9D00DFF918 /* OCAUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D6BFCF4B18748DDD0088D928 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6BFCF4C18748DEC0088D928 /* OCAUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		D6BF165E18726E9D00DFF918 /* OCAUtilities */ = {
 			isa = PBXNativeTarget;
@@ -189,6 +201,7 @@
 				D6BF165B18726E9D00DFF918 /* Sources */,
 				D6BF165C18726E9D00DFF918 /* Frameworks */,
 				D6BF165D18726E9D00DFF918 /* CopyFiles */,
+				D6BFCF4B18748DDD0088D928 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -390,6 +403,7 @@
 				GCC_PREFIX_HEADER = "OCAUtilities/OCAUtilities-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -402,6 +416,7 @@
 				GCC_PREFIX_HEADER = "OCAUtilities/OCAUtilities-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -463,6 +478,7 @@
 				D6BF168418726E9D00DFF918 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6BF168518726E9D00DFF918 /* Build configuration list for PBXNativeTarget "OCAUtilitiesTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +487,7 @@
 				D6BF168718726E9D00DFF918 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

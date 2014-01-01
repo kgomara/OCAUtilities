@@ -11,11 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-/*
- * Modified from this stackoverflow: http://stackoverflow.com/questions/969130/how-to-print-out-the-method-name-and-line-number-and-conditionally-disable-nslog
- */
-
-
 #ifndef OCAGlobalMacros_h           // Namespace guard
 
 #define OCAGlobalMacros_h
@@ -23,6 +18,10 @@
 // =========================================================================================================
 #pragma mark - Logging Macros
 // =========================================================================================================
+
+/*
+ * Modified from this stackoverflow: http://stackoverflow.com/questions/969130/how-to-print-out-the-method-name-and-line-number-and-conditionally-disable-nslog
+ */
 
 /**
  Logging macros. The are 3 versions - DLog, ALog, and ELog with the first letter signifying
@@ -226,7 +225,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Gets screen bounds allowing for device orientation
  
  UIScreen bounds are always in Portrait mode. This routine swaps H + W if Landscape.
- @returns Oriented CGRect
+ @return Oriented CGRect
  */
 //----------------------------------------------------------------------------------------------------------
 + (CGRect)getScreenBoundsForCurrentOrientation;
@@ -234,7 +233,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 /**
  Examines the string to determine if it is formatted like an email address - e.g., name@domain
  @param email The string to validate
- @returns YES if the string appears to be formatted correctly, NO otherwise
+ @return YES if the string appears to be formatted correctly, NO otherwise
  */
 //----------------------------------------------------------------------------------------------------------
 + (BOOL)isValidEmailFormat: (NSString *)email;
@@ -251,7 +250,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Returns the localized date formatted as requested
  @param dateStyle Desired date style for the returned string
  @param timeStyle Desired time style for the returned string
- @returns Date formatted per the requested style
+ @return Date formatted per the requested style
  */
 //----------------------------------------------------------------------------------------------------------
 - (NSString *)dateStringWithDateStyle: (NSDateFormatterStyle)dateStyle
@@ -262,7 +261,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  
  The string will show "a few seconds ago", minutes, hours, or days appropriately
  @param secondDate the later date
- @returns formatted string representing the time difference between the two dates
+ @return formatted string representing the time difference between the two dates
  */
 //----------------------------------------------------------------------------------------------------------
 - (NSString *)formattedTimeToDate: (NSDate *)secondDate;
@@ -270,7 +269,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 /**
  Returns the current date and time in GMT
  
- @returns NSDate representing the current GMT
+ @return NSDate representing the current GMT
  */
 //----------------------------------------------------------------------------------------------------------
 + (NSDate *)currentGMTDate;
@@ -306,14 +305,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 /**
  Finds the parent view controller
- @returns the parent view controller if successful, nil otherwise
+ @return the parent view controller if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
 - (UIViewController *) containingViewController;
 
 /**
  Traverses the Responder chain looking for UIViewControllers
- @returns A UIViewController if successful, nil otherwise
+ @return A UIViewController if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
 - (id) traverseResponderChainForUIViewController;
@@ -329,7 +328,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 /**
  Creates a 32-digit hex-value of a NSString
- @returns MD5 hash of the string
+ @return MD5 hash of the string
  */
 //----------------------------------------------------------------------------------------------------------
 - (NSString *)MD5Hash;
@@ -337,7 +336,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 /**
  Validates RFC3339 Date String
  Ambiously named. Make more robust as issues are identified
- @returns an validated RFC3339 date if successful, nil otherwise
+ @return an validated RFC3339 date if successful, nil otherwise
  */
 - (NSString *)getRFC3339String;
 
@@ -531,7 +530,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 /**
  Make an image from a UIView
  @param view UIView to image
- @returns Image if successful, nil otherwise
+ @return Image if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
 + (UIImage*)imageFromView: (UIView*)view;
@@ -540,7 +539,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  Make an image from a UIView, scaled to a CGSize
  @param view UIView to image
  @param newSize Desired new size
- @returns Scaled image if successful, nil otherwise
+ @return Scaled image if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
 + (UIImage*)imageFromView: (UIView*)view
@@ -550,7 +549,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  Re-size a UIImage
  @param image UIImage to re-size
  @param newSize Desired new size
- @returns Scaled image if successful, nil otherwise
+ @return Scaled image if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
 + (UIImage*)imageWithImage: (UIImage*)image
