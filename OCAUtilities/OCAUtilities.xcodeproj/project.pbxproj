@@ -62,6 +62,7 @@
 		D6ABF9B6187A180500AECF28 /* UIFontDescriptor+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFontDescriptor+OCAUtilities.m"; sourceTree = "<group>"; };
 		D6ABF9BB187A186700AECF28 /* UIFont+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+OCAUtilities.m"; sourceTree = "<group>"; };
 		D6ABF9C0187A18EC00AECF28 /* UIStoryboard+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+OCAUtilities.m"; sourceTree = "<group>"; };
+		D6ABF9C5187A1F4600AECF28 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		D6BF165F18726E9D00DFF918 /* libOCAUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCAUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6BF166218726E9D00DFF918 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6BF166618726E9D00DFF918 /* OCAUtilities-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCAUtilities-Prefix.pch"; sourceTree = "<group>"; };
@@ -107,9 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6ABF9C4187A1F4600AECF28 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				D6ABF9C5187A1F4600AECF28 /* README.txt */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
 		D6BF165618726E9D00DFF918 = {
 			isa = PBXGroup;
 			children = (
+				D6ABF9C4187A1F4600AECF28 /* Documentation */,
 				D6BF166418726E9D00DFF918 /* OCAUtilities */,
 				D6BF167818726E9D00DFF918 /* OCAUtilitiesTests */,
 				D6BF166118726E9D00DFF918 /* Frameworks */,
@@ -139,12 +149,12 @@
 		D6BF166418726E9D00DFF918 /* OCAUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				D6BF169D1872734600DFF918 /* OCADrawingUtilities.m */,
-				D6BF166718726E9D00DFF918 /* OCAUtilities.h */,
-				D6BF166918726E9D00DFF918 /* OCAUtilities.m */,
-				D6BF169E1872734600DFF918 /* OCATextField.m */,
 				D6BF168818726FE900DFF918 /* NSDate+OCAUtilities.m */,
 				D6BF168918726FE900DFF918 /* NSString+OCAUtilities.m */,
+				D6BF169D1872734600DFF918 /* OCADrawingUtilities.m */,
+				D6BF169E1872734600DFF918 /* OCATextField.m */,
+				D6BF166718726E9D00DFF918 /* OCAUtilities.h */,
+				D6BF166918726E9D00DFF918 /* OCAUtilities.m */,
 				D6ABF9BB187A186700AECF28 /* UIFont+OCAUtilities.m */,
 				D6ABF9B6187A180500AECF28 /* UIFontDescriptor+OCAUtilities.m */,
 				D6BF168A18726FE900DFF918 /* UIImage+OCAUtilities.m */,
