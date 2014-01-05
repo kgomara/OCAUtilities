@@ -1,6 +1,6 @@
 //
 //  NSString+OCAUtilities.m
-//  LiteratureRack
+//  OCAUtilities
 //
 //  Created by KEVIN OMARA on 6/20/12.
 //  Copyright (c) 2012-2013 O'Mara Consulting Associates. All rights reserved.

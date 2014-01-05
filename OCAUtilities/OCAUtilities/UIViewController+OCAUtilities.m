@@ -1,6 +1,6 @@
 //
 //  UIViewController+OCAUtilities.m
-//  UIViewController+OCAUtilities
+//  OCAUtilities
 //
 //  Created by Kent Nguyen on 2/5/12.
 //  Renamed and modified by Kevin O'Mara 6/28/2012

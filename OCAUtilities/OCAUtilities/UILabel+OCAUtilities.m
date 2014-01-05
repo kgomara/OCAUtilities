@@ -1,6 +1,6 @@
 //
 //  UILabel+OCAUtilities.m
-//  LiteratureRack
+//  OCAUtilities
 //
 //  Created by KEVIN OMARA on 6/16/12.
 //  Copyright (c) 2012-2013 O'Mara Consulting Associates. All rights reserved.
@@ -25,5 +25,12 @@
     
     [self sizeToFit];
 }
+
+//----------------------------------------------------------------------------------------------------------
+- (NSString *)OCATextStyle
+{
+    return [self.font OCATextStyle];
+}
+
 
 @end
