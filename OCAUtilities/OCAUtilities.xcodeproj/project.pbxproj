@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		D6FA4A83187E5B1600E5F6C4 /* GenDocumentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D6FA4A84187E5B1600E5F6C4 /* Build configuration list for PBXAggregateTarget "GenDocumentation" */;
+			buildPhases = (
+				D6FA4A87187E5B4700E5F6C4 /* Run Script */,
+			);
+			dependencies = (
+			);
+			name = GenDocumentation;
+			productName = GenDocumentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		D6ABF9AE187A172200AECF28 /* UITextField+OCAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABF9AC187A172200AECF28 /* UITextField+OCAUtilities.m */; };
 		D6ABF9AF187A172200AECF28 /* UITextField+OCAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABF9AC187A172200AECF28 /* UITextField+OCAUtilities.m */; };
@@ -57,12 +71,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6988A14188333FB00DEC402 /* NSDate+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "NSDate+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A15188333FB00DEC402 /* NSString+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "NSString+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A16188333FB00DEC402 /* UIImage+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "UIImage+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A17188333FB00DEC402 /* UILabel+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "UILabel+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A18188333FB00DEC402 /* UIStoryboard+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "UIStoryboard+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A19188333FB00DEC402 /* UIView+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "UIView+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A1A188333FB00DEC402 /* UIViewController+OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = "UIViewController+OCAUtilities.html"; sourceTree = "<group>"; };
+		D6988A1C188333FB00DEC402 /* OCATextField.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = OCATextField.html; sourceTree = "<group>"; };
+		D6988A1D188333FB00DEC402 /* OCAUtilities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = OCAUtilities.html; sourceTree = "<group>"; };
+		D6988A1E188333FB00DEC402 /* TransparentToolBar.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = TransparentToolBar.html; sourceTree = "<group>"; };
+		D6988A20188333FB00DEC402 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
+		D6988A21188333FB00DEC402 /* stylesPrint.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesPrint.css; sourceTree = "<group>"; };
+		D6988A22188333FB00DEC402 /* hierarchy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = hierarchy.html; sourceTree = "<group>"; };
+		D6988A24188333FB00DEC402 /* button_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bar_background.png; sourceTree = "<group>"; };
+		D6988A25188333FB00DEC402 /* disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disclosure.png; sourceTree = "<group>"; };
+		D6988A26188333FB00DEC402 /* disclosure_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disclosure_open.png; sourceTree = "<group>"; };
+		D6988A27188333FB00DEC402 /* library_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = library_background.png; sourceTree = "<group>"; };
+		D6988A28188333FB00DEC402 /* title_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_background.png; sourceTree = "<group>"; };
+		D6988A29188333FB00DEC402 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html.documentation; path = index.html; sourceTree = "<group>"; };
+		D6988A2B188336A300DEC402 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
 		D6ABF9AC187A172200AECF28 /* UITextField+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+OCAUtilities.m"; sourceTree = "<group>"; };
 		D6ABF9B1187A17A200AECF28 /* UITextView+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+OCAUtilities.m"; sourceTree = "<group>"; };
 		D6ABF9B6187A180500AECF28 /* UIFontDescriptor+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFontDescriptor+OCAUtilities.m"; sourceTree = "<group>"; };
 		D6ABF9BB187A186700AECF28 /* UIFont+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+OCAUtilities.m"; sourceTree = "<group>"; };
 		D6ABF9C0187A18EC00AECF28 /* UIStoryboard+OCAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+OCAUtilities.m"; sourceTree = "<group>"; };
-		D6ABF9C5187A1F4600AECF28 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		D6BF165F18726E9D00DFF918 /* libOCAUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCAUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6BF166218726E9D00DFF918 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6BF166618726E9D00DFF918 /* OCAUtilities-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCAUtilities-Prefix.pch"; sourceTree = "<group>"; };
@@ -108,18 +141,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D6ABF9C4187A1F4600AECF28 /* Documentation */ = {
+		D6988A11188333FB00DEC402 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				D6ABF9C5187A1F4600AECF28 /* README.txt */,
+				D6988A12188333FB00DEC402 /* html */,
 			);
 			path = Documentation;
+			sourceTree = "<group>";
+		};
+		D6988A12188333FB00DEC402 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				D6988A13188333FB00DEC402 /* Categories */,
+				D6988A1B188333FB00DEC402 /* Classes */,
+				D6988A1F188333FB00DEC402 /* css */,
+				D6988A22188333FB00DEC402 /* hierarchy.html */,
+				D6988A23188333FB00DEC402 /* img */,
+				D6988A29188333FB00DEC402 /* index.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		D6988A13188333FB00DEC402 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D6988A14188333FB00DEC402 /* NSDate+OCAUtilities.html */,
+				D6988A15188333FB00DEC402 /* NSString+OCAUtilities.html */,
+				D6988A16188333FB00DEC402 /* UIImage+OCAUtilities.html */,
+				D6988A17188333FB00DEC402 /* UILabel+OCAUtilities.html */,
+				D6988A18188333FB00DEC402 /* UIStoryboard+OCAUtilities.html */,
+				D6988A19188333FB00DEC402 /* UIView+OCAUtilities.html */,
+				D6988A1A188333FB00DEC402 /* UIViewController+OCAUtilities.html */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		D6988A1B188333FB00DEC402 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D6988A1C188333FB00DEC402 /* OCATextField.html */,
+				D6988A1D188333FB00DEC402 /* OCAUtilities.html */,
+				D6988A1E188333FB00DEC402 /* TransparentToolBar.html */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D6988A1F188333FB00DEC402 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				D6988A20188333FB00DEC402 /* styles.css */,
+				D6988A21188333FB00DEC402 /* stylesPrint.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		D6988A23188333FB00DEC402 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				D6988A24188333FB00DEC402 /* button_bar_background.png */,
+				D6988A25188333FB00DEC402 /* disclosure.png */,
+				D6988A26188333FB00DEC402 /* disclosure_open.png */,
+				D6988A27188333FB00DEC402 /* library_background.png */,
+				D6988A28188333FB00DEC402 /* title_background.png */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 		D6BF165618726E9D00DFF918 = {
 			isa = PBXGroup;
 			children = (
-				D6ABF9C4187A1F4600AECF28 /* Documentation */,
+				D6988A2B188336A300DEC402 /* Readme.markdown */,
+				D6988A11188333FB00DEC402 /* Documentation */,
 				D6BF166418726E9D00DFF918 /* OCAUtilities */,
 				D6BF167818726E9D00DFF918 /* OCAUtilitiesTests */,
 				D6BF166118726E9D00DFF918 /* Frameworks */,
@@ -268,6 +360,7 @@
 			targets = (
 				D6BF165E18726E9D00DFF918 /* OCAUtilities */,
 				D6BF166E18726E9D00DFF918 /* OCAUtilitiesTests */,
+				D6FA4A83187E5B1600E5F6C4 /* GenDocumentation */,
 			);
 		};
 /* End PBXProject section */
@@ -282,6 +375,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D6FA4A87187E5B4700E5F6C4 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"OMaraConsultingAssociates\";\ncompanyID=\"com.omaraconsultingassoc\";\ncompanyURL=\"http://omaraconsultingassoc.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"/tmp/appledoc\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--ignore \"*.m\" \\\n--exit-threshold 2 \\\n--index-desc \"${PROJECT_DIR}/Readme.markdown\" \\\n\"${PROJECT_DIR}\"\necho \"Build successful, copying to project folder \"\necho ${PROJECT_DIR}/Documentation\nrsync -rv ${outputPath}/html ${PROJECT_DIR}/Documentation\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6BF165B18726E9D00DFF918 /* Sources */ = {
@@ -490,6 +600,20 @@
 			};
 			name = Release;
 		};
+		D6FA4A85187E5B1600E5F6C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D6FA4A86187E5B1600E5F6C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -516,6 +640,15 @@
 			buildConfigurations = (
 				D6BF168618726E9D00DFF918 /* Debug */,
 				D6BF168718726E9D00DFF918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6FA4A84187E5B1600E5F6C4 /* Build configuration list for PBXAggregateTarget "GenDocumentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6FA4A85187E5B1600E5F6C4 /* Debug */,
+				D6FA4A86187E5B1600E5F6C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

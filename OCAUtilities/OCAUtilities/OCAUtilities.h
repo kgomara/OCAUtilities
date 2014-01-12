@@ -243,7 +243,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 // =========================================================================================================
 #pragma mark - Convenience categories for NSDate
 // =========================================================================================================
-
+/**
+ Category extensions to NSDate to facilitate handling and displaying dates.
+ */
 @interface NSDate (OCAUtilities)
 
 /**
@@ -281,6 +283,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #pragma mark - Convenience methods add to UIView
 // =========================================================================================================
 
+/**
+ Category extensions to UIView
+ */
 @interface UIView (OCAUtilities)
 
 /**
@@ -324,6 +329,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #pragma mark - Convenience Categories added to NSString
 // =========================================================================================================
 
+/**
+ Category extions to NSString
+ */
 @interface NSString (OCAUtilities)
 
 /**
@@ -430,6 +438,9 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 #pragma mark - Convenience Categories added to UILabel
 // =========================================================================================================
 
+/**
+ Category extensions to UILabel
+ */
 @interface UILabel (OCAUtilities)
 
 /**
@@ -456,6 +467,9 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 #pragma mark - Simple UITextField subclass to adds text insets.
 // =========================================================================================================
 
+/**
+ Category extensions to UITextField
+ */
 @interface OCATextField : UITextField
 
 ///------------------------------------
@@ -530,6 +544,9 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 #pragma mark - Convenience Categories added to UIImage
 // =========================================================================================================
 
+/**
+ Category extensions to UIImage
+ */
 @interface UIImage (OCAUtilities)
 
 /**
@@ -569,6 +586,9 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 
 #define kSemiModalAnimationDuration   0.5
 
+/**
+ Category extensions to UIViewController
+ */
 @interface UIViewController (OCAUtilities)
 
 /**
@@ -593,6 +613,9 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 
 @end
 
+/**
+ Category extensions to UIStoryboard
+ */
 @interface UIStoryboard (OCAUtilities)
 
 + (UIStoryboard *)main_iPhoneStoryboard;
