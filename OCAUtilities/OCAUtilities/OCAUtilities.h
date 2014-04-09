@@ -329,24 +329,37 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #pragma mark - Convenience Categories added to NSString
 // =========================================================================================================
 
+//----------------------------------------------------------------------------------------------------------
 /**
  Category extions to NSString
  */
 @interface NSString (OCAUtilities)
 
+//----------------------------------------------------------------------------------------------------------
 /**
  Creates a 32-digit hex-value of a NSString
  @return MD5 hash of the string
  */
-//----------------------------------------------------------------------------------------------------------
 - (NSString *)MD5Hash;
 
+//----------------------------------------------------------------------------------------------------------
 /**
  Validates RFC3339 Date String
  Ambiously named. Make more robust as issues are identified
  @return an validated RFC3339 date if successful, nil otherwise
  */
 - (NSString *)getRFC3339String;
+
+//----------------------------------------------------------------------------------------------------------
+/**
+ Returns the first30 characters of the receiver.
+ 
+ If the given string is 30 characters or less, returns the string. If longer than 30 characters, returns the
+ first 27 of the actual string concatenated with '...'.
+ 
+ @return 30 characters (or fewer) representing the string
+ */
+- (NSString *)first30;
 
 @end
 

@@ -47,6 +47,18 @@
     return theDate;
 }
 
+//----------------------------------------------------------------------------------------------------------
+- (NSString *)first30
+{
+    NSString *first30;
+    if ([self length] > 30) {
+        first30 = [NSString stringWithFormat:@"%@...", [self substringWithRange: NSMakeRange(0, 27)]];
+    } else {
+        first30 = self;
+    }
+
+    return first30;
+}
 
 
 @end
