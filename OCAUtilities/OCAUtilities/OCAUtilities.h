@@ -767,6 +767,16 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 
 - (NSString *)OCATextStyle;
 
+//----------------------------------------------------------------------------------------------------------
+/**
+ Set a UITextField with text or placeholder.
+ 
+ @param text            The text candidate.
+ @param placeholder     The placeholder to use if candidate text is empty.
+ */
+- (void)setText: (NSString *)text
+  orPlaceHolder: (NSString *)placeholder;
+
 @end
 
 
