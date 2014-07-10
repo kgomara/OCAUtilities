@@ -249,7 +249,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 @interface NSDate (OCAUtilities)
 
 /**
- Returns the localized date formatted as requested
+ Returns the localized date formatted as requested.
+ 
  @param dateStyle Desired date style for the returned string
  @param timeStyle Desired time style for the returned string
  @return Date formatted per the requested style
@@ -313,14 +314,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  @return the parent view controller if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
-- (UIViewController *) containingViewController;
+
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) UIViewController *containingViewController;
 
 /**
  Traverses the Responder chain looking for UIViewControllers
  @return A UIViewController if successful, nil otherwise
  */
 //----------------------------------------------------------------------------------------------------------
-- (id) traverseResponderChainForUIViewController;
+
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) id traverseResponderChainForUIViewController;
 
 @end
 
@@ -340,7 +343,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Creates a 32-digit hex-value of a NSString
  @return MD5 hash of the string
  */
-- (NSString *)MD5Hash;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *MD5Hash;
 
 //----------------------------------------------------------------------------------------------------------
 /**
@@ -348,7 +351,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  Ambiously named. Make more robust as issues are identified
  @return an validated RFC3339 date if successful, nil otherwise
  */
-- (NSString *)getRFC3339String;
+@property (NS_NONATOMIC_IOSONLY, getter=getRFC3339String, readonly, copy) NSString *RFC3339String;
 
 //----------------------------------------------------------------------------------------------------------
 /**
@@ -359,7 +362,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
  
  @return 30 characters (or fewer) representing the string
  */
-- (NSString *)first30;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *first30;
 
 @end
 
@@ -370,9 +373,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #ifndef OCADRAWINGUTILITIES
 #define OCADRAWINGUTILITIES
 
-///-----------------------------------
-/// @name Degree and Radian Conversion
-///-----------------------------------
+/**
+ -----------------------------------
+ @name Degree and Radian Conversion
+ -----------------------------------
+ */
 
 /**
  A macro that converts a number from degress to radians.
@@ -406,9 +411,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 extern CGFloat OCAFLimit(CGFloat f, CGFloat min, CGFloat max);
 
 
-///-----------------------------
-/// @name Rectangle Manipulation
-///-----------------------------
+/**
+ -----------------------------
+ @name Rectangle Manipulation
+ -----------------------------
+ */
 
 //----------------------------------------------------------------------------------------------------------
 extern CGRect CGRectSetX(CGRect rect, CGFloat x);
@@ -423,26 +430,32 @@ extern CGSize CGSizeAspectScaleToSize(CGSize size, CGSize toSize);
 extern CGRect CGRectAddPoint(CGRect rect, CGPoint point);
 
 
-///---------------------------------
-/// @name Drawing Rounded Rectangles
-///---------------------------------
+/**
+ ---------------------------------
+ @name Drawing Rounded Rectangles
+ ---------------------------------
+ */
 
 //----------------------------------------------------------------------------------------------------------
 extern void OCADrawRoundedRect(CGContextRef context, CGRect rect, CGFloat cornerRadius);
 
 
-///-------------------------
-/// @name Creating Gradients
-///-------------------------
+/**
+ -------------------------
+ @name Creating Gradients
+ -------------------------
+ */
 
 //----------------------------------------------------------------------------------------------------------
-extern CGGradientRef OCACreateGradientWithColors(NSArray *colors);
-extern CGGradientRef OCACreateGradientWithColorsAndLocations(NSArray *colors, NSArray *locations);
+extern CGGradientRef OCACreateGradientWithColors(NSArray *colors) CF_RETURNS_RETAINED;
+extern CGGradientRef OCACreateGradientWithColorsAndLocations(NSArray *colors, NSArray *locations) CF_RETURNS_RETAINED;
 
 
-///------------------------
-/// @name Drawing Gradients
-///------------------------
+/**
+ ------------------------
+ @name Drawing Gradients
+ ------------------------
+ */
 
 //----------------------------------------------------------------------------------------------------------
 extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, CGRect rect);
@@ -471,7 +484,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 /**
  Text Style to use with UITextKit dynamic fonts
  */
-- (NSString *)OCATextStyle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *OCATextStyle;
 
 @end
 
@@ -485,9 +498,11 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
  */
 @interface OCATextField : UITextField
 
-///------------------------------------
-/// @name Accessing the Text Attributes
-///------------------------------------
+/**
+ ------------------------------------
+ @name Accessing the Text Attributes
+ ------------------------------------
+ */
 
 /**
  The color of the placeholder text.
@@ -500,9 +515,11 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 @property (nonatomic, strong) UIColor *placeholderTextColor;
 
 
-///------------------------------
-/// @name Drawing and Positioning
-///------------------------------
+/**
+ ------------------------------
+ @name Drawing and Positioning
+ ------------------------------
+ */
 
 /**
  The inset or outset margins for the edges of the text content drawing rectangle.
@@ -739,7 +756,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 + (UIFont *)OCAPreferredFontWithTextStyle: (NSString *)aTextStyle
                                     scale: (CGFloat)aScale;
 
-- (NSString *)OCATextStyle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *OCATextStyle;
 
 - (UIFont *)OCAFontWithScale:(CGFloat)fontScale;
 
@@ -750,7 +767,7 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 + (UIFontDescriptor *)OCAPreferredFontDescriptorWithTextStyle: (NSString *)aTextStyle
                                                         scale: (CGFloat)aScale;
 
-- (NSString *)OCATextStyle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *OCATextStyle;
 
 - (UIFontDescriptor *)OCAFontDescriptorWithScale: (CGFloat)aScale;
 
@@ -758,14 +775,14 @@ extern void OCADrawGradientInRect(CGContextRef context, CGGradientRef gradient, 
 
 @interface UITextView (OCAUtilities)
 
-- (NSString *)OCATextStyle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *OCATextStyle;
 
 @end
 
 
 @interface UITextField (OCAExtensions)
 
-- (NSString *)OCATextStyle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *OCATextStyle;
 
 //----------------------------------------------------------------------------------------------------------
 /**

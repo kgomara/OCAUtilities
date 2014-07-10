@@ -119,14 +119,14 @@ CGGradientRef OCACreateGradientWithColorsAndLocations(NSArray *colors, NSArray *
 		return nil;
 	}
 	
-	CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors objectAtIndex:0] CGColor]);
+	CGColorSpaceRef colorSpace = CGColorGetColorSpace([colors[0] CGColor]);
 	
 	CGFloat *gradientLocations = NULL;
 	NSUInteger locationsCount = [locations count];
 	if (locationsCount == colorsCount) {
 		gradientLocations = (CGFloat *)malloc(sizeof(CGFloat) * locationsCount);
 		for (NSUInteger i = 0; i < locationsCount; i++) {
-			gradientLocations[i] = [[locations objectAtIndex:i] floatValue];
+			gradientLocations[i] = [locations[i] floatValue];
 		}
 	}
 	

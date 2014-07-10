@@ -71,7 +71,7 @@
     
     NSDictionary* info  = [aNotification userInfo];
     // Get the keyboard size, which is always in window coordinates and Portrait
-    CGSize kbSize       = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize       = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     if (kbSize.width < kbSize.height) {
         // we must be in landscape, swap width and height

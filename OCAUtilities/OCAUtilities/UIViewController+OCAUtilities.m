@@ -64,7 +64,7 @@
     group.fillMode            = kCAFillModeForwards;
     group.removedOnCompletion = NO;
     [group setDuration: animation.duration*2];
-    [group setAnimations: [NSArray arrayWithObjects: animation, animation2, nil]];
+    [group setAnimations: @[animation, animation2]];
     
     return group;
 }
@@ -151,8 +151,8 @@
 {
     DLog();
     UIView *target  = [self parentTarget];
-    UIView *modal   = [target.subviews objectAtIndex: target.subviews.count-1];
-    UIView *overlay = [target.subviews objectAtIndex: target.subviews.count-2];
+    UIView *modal   = (target.subviews)[target.subviews.count-1];
+    UIView *overlay = (target.subviews)[target.subviews.count-2];
     [UIView animateWithDuration: kSemiModalAnimationDuration
                      animations: ^{
         modal.frame = CGRectMake(0, target.frame.size.height, modal.frame.size.width, modal.frame.size.height);
@@ -162,7 +162,7 @@
     }];
     
     // Begin overlay animation
-    UIImageView *ss = (UIImageView*)[overlay.subviews objectAtIndex: 0];
+    UIImageView *ss = (UIImageView*)(overlay.subviews)[0];
     [ss.layer addAnimation: [self animationGroupForward: NO] 
                     forKey: @"bringForwardAnimation"];
     [UIView animateWithDuration: kSemiModalAnimationDuration 
